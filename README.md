@@ -1,5 +1,7 @@
 <h1 align="center">
+  <a href="danielfelgate.com">
   danielfelgate.com
+  </a>
 </h1>
 <p align="center">
   My portfolio built with <a href="https://nextjs.org/" target="_blank">Nextjs</a> and hosted with <a href="https://www.vercel.com/" target="_blank">Vercel</a>
