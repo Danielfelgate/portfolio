@@ -4,15 +4,8 @@ import { contact, ContactType } from 'config/contact';
 import React, { memo } from 'react';
 import { IconBaseProps } from 'react-icons';
 import { FaLinkedinIn as LinkedinIcon } from 'react-icons/fa';
-import {
-  IoLogoGithub as GithubIcon,
-  IoLogoTwitter as TwitterIcon,
-} from 'react-icons/io';
-import {
-  SiBuymeacoffee as BuymeacoffeeIcon,
-  SiGmail as MailIcon,
-  SiYoutube as YoutubeIcon,
-} from 'react-icons/si';
+import { IoLogoGithub as GithubIcon } from 'react-icons/io';
+import { SiGmail as MailIcon, SiItchdotio as ItchioIcon } from 'react-icons/si';
 import { Maybe, Tuple } from 'types';
 
 interface SocialIconsProps {
@@ -44,26 +37,20 @@ function resolveIcon(entry: Tuple<string>): React.ReactNode {
       icon = <LinkedinIcon {...props} />;
       break;
 
-    case ContactType.twitter:
-      icon = <TwitterIcon {...props} />;
-      break;
-
     case ContactType.github:
       icon = <GithubIcon {...props} />;
       break;
 
-    case ContactType.youtube:
-      icon = <YoutubeIcon {...props} />;
-      break;
-
     case ContactType.email:
       icon = <MailIcon {...props} />;
-      break;
+      return (
+        <a className='social-icons' href={url} aria-label={type}>
+          {icon}
+        </a>
+      );
 
-    case ContactType.buymeacoffee:
-      icon = <BuymeacoffeeIcon {...props} />;
-      break;
-    default:
+    case ContactType.itchio:
+      icon = <ItchioIcon {...props} />;
       break;
   }
 

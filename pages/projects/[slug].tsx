@@ -8,6 +8,7 @@ import type { Project, SubProject } from 'config/projects';
 import { defaultDimensions } from 'config/projects';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
+import Link from '@/components/Link';
 import React, { useCallback } from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
 
@@ -45,6 +46,8 @@ export default function Project({
     deployment,
     screenshots,
     subProjects,
+    website,
+    repository,
   } = project;
 
   const [height, width] = dimensions ?? defaultDimensions;
@@ -58,7 +61,7 @@ export default function Project({
 
       return (
         <div
-          className='mr-2 flex-shrink-0 overflow-hidden rounded bg-placeholder-light dark:bg-placeholder-dark'
+          className='flex-shrink-0 mr-2 overflow-hidden rounded bg-placeholder-light dark:bg-placeholder-dark'
           style={style}
         >
           <Image
@@ -99,23 +102,36 @@ export default function Project({
         description={shortDescription || description}
         imageUrl={banner}
       />
-      <H1 className='lg:text-5x mb-4 text-3xl font-bold dark:text-white'>
+      <H1 className='mb-4 text-3xl font-bold lg:text-5x dark:text-white'>
         {title}
       </H1>
       <p className='mb-4 font-light'>{description}</p>
 
-      <H2>Stack</H2>
+      <H2>Technology</H2>
       <StackList stack={stack} />
 
-      <Conditional condition={hasDeployments}>
-        <H2>Deployments</H2>
-        <DeploymentList deployment={deployment} />
+      <Conditional condition={!!website || !!repository}>
+        <H2>Links</H2>
+        <Conditional condition={!!website}>
+          <p>
+            <Link className='font-extralight' href={website}>
+              Website: {website}
+            </Link>
+          </p>
+        </Conditional>
+        <Conditional condition={!!repository}>
+          <p>
+            <Link className='font-extralight' href={repository}>
+              Repository: {repository}
+            </Link>
+          </p>
+        </Conditional>
       </Conditional>
 
       <Conditional condition={hasScreenshots}>
         <H2 className='my-4'>Screenshots</H2>
         <ScrollContainer
-          className='list mt-4 mb-1 flex overflow-auto'
+          className='flex mt-4 mb-1 overflow-auto list'
           hideScrollbars={false}
         >
           {React.Children.toArray(screenshots.map(renderScreenShotList))}

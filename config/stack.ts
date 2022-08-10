@@ -10,6 +10,8 @@ export enum Stack {
   // Frontend
   react,
   reactnative,
+  nextjs,
+  tailwind,
 
   // Backend
   graphql,
@@ -30,22 +32,22 @@ export enum Stack {
   redis,
   postgres,
   mongo,
+
+  // Game Design
+  unity,
+  unreal,
+  vr,
 }
 
 export const WorkStack = [
-  Stack.go,
   Stack.typescript,
   Stack.react,
-  Stack.kubernetes,
-  Stack.docker,
-  Stack.nats,
-  Stack.aws,
-  Stack.gcp,
-  Stack.redis,
-  Stack.arangodb,
-  Stack.postgres,
-  Stack.graphql,
   Stack.reactnative,
+  Stack.nextjs,
+  Stack.tailwind,
+  Stack.unity,
+  Stack.unreal,
+  Stack.vr,
 ];
 
 type StackInfoMap = {
@@ -73,6 +75,14 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
   [Stack.reactnative]: {
     value: 'React Native',
     color: Colors.reactnative,
+  },
+  [Stack.nextjs]: {
+    value: 'Next.js',
+    color: '#000',
+  },
+  [Stack.tailwind]: {
+    value: 'Tailwind CSS',
+    color: Colors.tailwind,
   },
   [Stack.graphql]: {
     value: 'GraphQL',
@@ -125,5 +135,17 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
   [Stack.mongo]: {
     value: 'MongoDB',
     color: Colors.mongo,
+  },
+  [Stack.unity]: {
+    value: 'Unity',
+    color: Colors.backend,
+  },
+  [Stack.unreal]: {
+    value: 'Unreal Engine',
+    color: Colors.redis,
+  },
+  [Stack.vr]: {
+    value: 'VR',
+    color: Colors.git,
   },
 };

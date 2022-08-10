@@ -62,7 +62,7 @@ module.exports = withBundleAnalyzer({
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts', 'config'],
   },
   images: {
-    domains: ['firebasestorage.googleapis.com'],
+    domains: ['img.itch.zone'],
   },
   async headers() {
     return [

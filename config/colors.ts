@@ -9,6 +9,7 @@ export const Colors = {
   web: '#2D2D2D',
   react: '#61DAF6',
   nextjs: '#000000',
+  tailwind: '#38bdf8',
 
   // Backend
   graphql: '#E535AB',
@@ -62,4 +63,9 @@ export const Colors = {
   resume: '#EEEBFF',
   opensource: '#26BE00',
   tutorial: '#4dd0e1',
+
+  //Game Design
+  unity: '222c37',
+  unreal: '222c37',
+  vr: '222c37',
 };
