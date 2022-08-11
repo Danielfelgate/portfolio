@@ -64,7 +64,8 @@ function Links(): React.ReactElement {
           <li>
             <Link
               className='flex ml-2 mr-2'
-              href='https://cyborgmantis.itch.io/'
+              href='/static/CV.pdf'
+              target='_blank'
             >
               <IoDocumentOutline className='icon mr-2 mt-0.5 inline text-2xl' />
               CV
